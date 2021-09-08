@@ -13,9 +13,28 @@ const Categories = ({trainers}) => {
 
     const handleClick = () => {
         setBodyBuilding(true)
-        console.log(bodyBuilding)
     }
 
+    const bodyBuildingTrainers = trainers.map((trainer, i) =>  {
+        if(trainer.bodybuilding) {
+            return (
+                <div key={i}>
+                    <h1>{`Name: ${trainer.first_name} ${trainer.last_name}`}</h1>
+                    <p>{`Email: ${trainer.email}`}</p>
+                    <p>{`Phone: ${trainer.phone_number}`}</p>
+                    <p>{`Body building: ${trainer.bodybuilding}`}</p>
+                </div>
+            )
+        }
+    })
+
+    if (bodyBuilding) {
+        return (
+            <div>
+                {bodyBuildingTrainers}
+            </div>
+        )
+    }
 
     return (
         <div>
@@ -24,7 +43,6 @@ const Categories = ({trainers}) => {
             <h2>Power Lifting</h2>
             <h2>Cycling</h2>
             <h2>Swimming</h2>
-            {bodyBuilding && <Trainers trainers={trainers}/>}
         </div>
     )
 }
