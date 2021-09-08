@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react'
 import axios from 'axios';
 import Trainers from './components/Trainers';
+import Categories from './components/Categories';
 
 class App extends React.Component {
   
@@ -80,8 +81,8 @@ class App extends React.Component {
     return (
     <div className='container'>
       <h1>Trainers Hubs</h1>
-      <h2> Test </h2>
-      <Trainers trainers={trainers}/>
+      <Categories trainers={trainers}/>
+      {/* <Trainers trainers={trainers}/> */}
     
     
     </div> 
