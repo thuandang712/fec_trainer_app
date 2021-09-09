@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import ReviewInput from './reviews/.ReviewInput.js';
+import Reviews from './reviews/.Reviews.js';
 
 class SingleTrainer extends Component {
 
@@ -29,7 +31,13 @@ class SingleTrainer extends Component {
             <p th:if="${true}">{`Running: ${singleTrainer[0].running}`}</p>
             <p th:if="${true}">{`Power Lifting: ${singleTrainer[0].power_lifting}`}</p>
             <p th:if="${true}">{`Strongman: ${singleTrainer[0].strongman}`}</p>
-            <p th:if="${true}">{`Cycling: ${singleTrainer[0].cycling}`}</p> 
+            <p th:if="${true}">{`Cycling: ${singleTrainer[0].cycling}`}</p>
+            <div>
+                <ReviewInput/>
+            </div> 
+            <div>
+                <Reviews/>
+            </div>
             </center>}
             { this.state.isEditing && <EditTrainer editTrainer={editTrainer} singleTrainer={singleTrainer}/>}
             <button onClick={handleEditChange}>{buttonText}</button>
