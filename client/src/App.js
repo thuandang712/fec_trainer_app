@@ -2,6 +2,8 @@ import './App.css';
 import React from 'react'
 import axios from 'axios';
 import Trainers from './components/Trainers';
+import Categories from './components/Categories';
+import Loading from './components/Loading';
 
 class App extends React.Component {
   
@@ -9,7 +11,6 @@ class App extends React.Component {
     trainers: [],
     loading: false,
     singleTrainer: null,
-    categories: false
   };
 
   // add something here 
@@ -22,7 +23,7 @@ class App extends React.Component {
 
   render() {
 
-    const { trainers, singleTrainer, categories } = this.state
+    const { trainers, singleTrainer, loading } = this.state
     
     // // ADD comment
     // const addComment = async(obj) => {
@@ -76,16 +77,24 @@ class App extends React.Component {
     //   )
     // }
     
+     
+    
+      
+    
 
     return (
     <div className='container'>
       <h1>Trainers Hubs</h1>
-      <h2> Test </h2>
-      <Trainers trainers={trainers}/>
+      <h2> Fitness Happens One Step At A Time </h2>
+      <Categories/>
+      
+      {/* <Trainers trainers={trainers}/> */}
     
     
     </div> 
   )
 }
 }
+
+
 export default App;
