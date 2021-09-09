@@ -1,7 +1,6 @@
 import './App.css';
 import React from 'react'
 import axios from 'axios';
-import Trainers from './components/Trainers';
 import Categories from './components/Categories';
 
 class App extends React.Component {
@@ -23,7 +22,7 @@ class App extends React.Component {
 
   render() {
 
-    const { trainers, singleTrainer, categories } = this.state
+    const { trainers } = this.state
     
     // // ADD comment
     // const addComment = async(obj) => {
