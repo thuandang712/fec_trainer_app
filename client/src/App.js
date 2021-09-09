@@ -80,6 +80,7 @@ class App extends React.Component {
     return (
     <div className='container'>
       <h1>Trainers Hubs</h1>
+      <h2> Be your most fittest self </h2>
       <Categories trainers={trainers}/>
       {/* <Trainers trainers={trainers}/> */}
     
