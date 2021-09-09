@@ -3,7 +3,7 @@ import TrainerItem from './TrainerItem'
 
 
 // bodybuilding, running, power_lifting, cycling, swimming
-const Categories = ({trainers}) => {
+const Categories = ({trainers, selectSingleTrainer}) => {
 
     const [bodyBuilding, setBodyBuilding] = useState(false)
     const [running, setRunning] = useState(false)
@@ -62,19 +62,19 @@ const Categories = ({trainers}) => {
 
 
     const bodyBuildingTrainers = trainers.filter( trainer => trainer.bodybuilding === true)
-        .map( (trainer, i) => <TrainerItem key={i} trainer={trainer}/>)
+        .map( (trainer, i) => <TrainerItem key={i} trainer={trainer} selectSingleTrainer={selectSingleTrainer}/>)
 
     const runningTrainers = trainers.filter( trainer => trainer.running === true)
-        .map( (trainer, i) => <TrainerItem key={i} trainer={trainer}/>)
+        .map( (trainer, i) => <TrainerItem key={i} trainer={trainer} selectSingleTrainer={selectSingleTrainer}/>)
 
     const powerLiftingTrainers = trainers.filter( trainer => trainer.power_lifting === true)
-        .map( (trainer, i) => <TrainerItem key={i} trainer={trainer}/>)
+        .map( (trainer, i) => <TrainerItem key={i} trainer={trainer} selectSingleTrainer={selectSingleTrainer}/>)
 
     const cyclingTrainers = trainers.filter( trainer => trainer.cycling === true)
-        .map( (trainer, i) => <TrainerItem key={i} trainer={trainer}/>)
+        .map( (trainer, i) => <TrainerItem key={i} trainer={trainer} selectSingleTrainer={selectSingleTrainer}/>)
 
     const swimmingTrainers = trainers.filter( trainer => trainer.swimming === true)
-        .map( (trainer, i) => <TrainerItem key={i} trainer={trainer}/>)
+        .map( (trainer, i) => <TrainerItem key={i} trainer={trainer} selectSingleTrainer={selectSingleTrainer}/>)
 
 
     // conditional rendering
