@@ -110,17 +110,20 @@ class App extends React.Component {
 
     return (
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> fcac62ee00af499d95a85e83328b8f15a6a5f652
     <div className='mainPageContainer'>
       <h1 className="mainHeader">Trainers Hubs</h1>
       <h2 className="secondaryHeader"> Be your most fit self</h2>
       <Categories trainers={trainers}
       selectSingleTrainer={selectSingleTrainer}/>
       {/* <Trainers trainers={trainers}/> */}
-    
-    
     </div> 
   )
 }
+<<<<<<< HEAD
 =======
       <div className='container'>
         <h1>Trainers Hubs</h1>
@@ -131,6 +134,9 @@ class App extends React.Component {
   }
 
 >>>>>>> 0e9bef13df53378ac865d9afa2c4df8daade423a
+=======
+
+>>>>>>> fcac62ee00af499d95a85e83328b8f15a6a5f652
 }
 
 export default App;
