@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import TrainerItem from './TrainerItem'
 
-
-// bodybuilding, running, power_lifting, cycling, swimming
 const Categories = ({trainers, selectSingleTrainer}) => {
 
     const [bodyBuilding, setBodyBuilding] = useState(false)
@@ -111,7 +109,6 @@ const Categories = ({trainers, selectSingleTrainer}) => {
             <div>
                 {swimmingTrainers}
                 <button onClick={handleGoBack}>Back</button>
-
             </div>
         )
     }

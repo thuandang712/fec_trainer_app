@@ -24,71 +24,71 @@ class App extends React.Component {
   };
 
 
-
-
   render() {
 
     const { trainers, reviews, singleTrainer, loading } = this.state
-  
-
-    // // ADD reviews
-    // const addreviews = async(obj) => {
-    //   const res = await axios.post('http://localhost:5500/api/trainer/', obj)
-    //   this.setState({reviews: [...reviews, ...res.data]})
-    // }
 
 
-
-    
-    
-
-    // select single trainer 
+    // select single trainer - GOOD
     const selectSingleTrainer = async(id) => {
       const res = await axios.get(`http://localhost:5500/api/trainers/${id}`)
       this.setState({singleTrainer: res.data})
+      // FILTER reviews belongs to the single trainer
       const resReviews = await axios.get("http://localhost:5500/api/comments")
       const rev = resReviews.data.filter(review => review.trainer_id === parseInt(id))
       this.setState({reviews: rev})
     }
 
-    // clear single trainer
+    
+    // clear single trainer -- GOOD
     const clearSingleTrainer = () => {
       this.setState({singleTrainer: null})
     }
 
-    // edit Trainer
+
+    // ******** edit Trainer ******************************
     const editTrainer = (id, obj) => {
       console.log(id)
       console.log(obj)
     }
 
-    // Delete reviews
-    const deleteReview = async(id) => {
-      // await axios.delete(`http://localhost:5500/api/trainer/${id}`)
-      this.setState({reviews: reviews.filter(reviews => reviews.comment_id !== id)})
+
+    // ADD reviews -- GOOD
+    const addReview = async(obj) => {
+      const res = await axios.post('http://localhost:5500/api/comments/', obj)
+      this.setState({reviews: [...reviews, ...res.data]})
     }
 
-    // Edit review
+
+    // DELETE reviews -- GOOD
+    const deleteReview = async(id) => {
+      // delete on UI 
+      this.setState({reviews: reviews.filter(reviews => reviews.comment_id !== id)})
+      // delete on DB 
+      await axios.delete(`http://localhost:5500/api/comments/${id}`)
+    }
+
+
+    // EDIT review -- GOOD
     const editReview = async(obj) => {
       const newReview = reviews.map(reviews => {
         if(reviews.comment_id === obj.comment_id) {  
-            reviews.comment_body = obj.comment_body
+          reviews.comment_body = obj.comment_body
         }
         return reviews
       })
       this.setState({reviews: newReview})
-      // this.setState({singlereviews: null}) 
       
-      
-      // let newUpdate = {
-      //   reviewss: obj.reviewss
-      // }
-      // await axios.patch(`http://localhost:4040/api/reviewss/${obj.reviewss_id}`, newUpdate)
-
+      // update on DB
+      let newUpdatedReview = {
+        comment_body: obj.comment_body,
+        trainer_id: obj.trainer_id
+      }
+      await axios.patch(`http://localhost:5500/api/comments/${obj.comment_id}`, newUpdatedReview)
     }
 
 
-
+    // CONDITIONAL RENDERING
     if (loading) {
       return <Loading/>
     }
@@ -99,7 +99,7 @@ class App extends React.Component {
         <div>
           <SingleTrainer singleTrainer={singleTrainer}
           clearSingleTrainer={clearSingleTrainer}
-          reviews={reviews} deleteReview={deleteReview} editReview={editReview}
+          reviews={reviews} addReview={addReview} deleteReview={deleteReview} editReview={editReview}
           editTrainer={editTrainer}/>
         </div>
       )
