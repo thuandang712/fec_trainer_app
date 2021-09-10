@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0px;
   padding: 0px;
     border: 0px;
@@ -9,7 +9,6 @@
 }
 
 .trainerItemContainer {
-  /* border: 1px solid rgb(96, 214, 141); */
   width: 430px;
   height: 150px;
   text-align: center;
@@ -47,7 +46,7 @@
 }
 
 .workoutImg1 {
-  /* border: 1px solid blue; */
+
   height: 950px;
   width: 800px;
   float: right;
@@ -58,7 +57,7 @@
 
 
 .trainersContainer {
-  /* border: 1px solid green; */
+  
   width: 600px;
   height: 1000px;
   margin-left: 150px;
@@ -66,4 +65,4 @@
 
 .container {
   border: 1px solid red;
-}
+} */

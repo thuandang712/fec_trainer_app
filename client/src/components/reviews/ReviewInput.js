@@ -28,7 +28,7 @@ class ReviewInput extends React.Component {
                 name="text"
                 value={text}
                 onChange={handleChange}
-                 />
+                />
                 <input type="submit" className="btn"/>
             </form>
         )

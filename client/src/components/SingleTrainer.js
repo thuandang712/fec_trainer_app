@@ -1,7 +1,7 @@
 import React from 'react'
 import ReviewInput from './reviews/ReviewInput';
 import Reviews from './reviews/Reviews';
-
+import ReviewItem from './reviews/ReviewItem';
 const SingleTrainer = ({singleTrainer, clearSingleTrainer, reviews}) => {
     return (
         <div>
