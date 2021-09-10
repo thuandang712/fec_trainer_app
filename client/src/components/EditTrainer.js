@@ -115,8 +115,8 @@ class EditTrainer extends React.Component {
     )
     }
 
-    }
 }
+
 
 
 export default EditTrainer
