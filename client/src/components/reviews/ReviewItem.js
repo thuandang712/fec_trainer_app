@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
+import EditReview from './EditReview'
 
-const ReviewItem = ({review}) => {
-   
+const ReviewItem = ({review, deleteReview, editReview}) => {
+    
+    const [isEditing, setIsEditting] = useState(false)
 
     const handleDelete = (e) => {
-        // deleteReview(parseInt(e.target.id))
+        console.log(e.target.id)
+        deleteReview(parseInt(e.target.id))
+    }
+
+    const handleEditStateChange = () => {
+        setIsEditting(true)
     }
 
     return(
@@ -12,7 +19,9 @@ const ReviewItem = ({review}) => {
             <h1 className="hover">{review.comment_body}</h1>
             <p>Review ID: {review.comment_id}</p>
             <p>Belongs to trainer ID: {review.trainer_id}</p>
-            <button className="btn hover" id={review.comment_id} onClick={handleDelete}>Delete</button>
+            <button className="btn hover" id={review.comment_id} onClick={handleDelete}>Delete Review</button>
+            <button onClick={handleEditStateChange}>Edit Review</button>
+            {isEditing && <EditReview review={review} editReview={editReview}/>}
         </div>
     )
 }
