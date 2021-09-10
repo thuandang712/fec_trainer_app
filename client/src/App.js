@@ -53,7 +53,9 @@ class App extends React.Component {
     }
 
 
+
     // ADD reviews -- add data validation
+
     const addReview = async(obj) => {
       const res = await axios.post('http://localhost:5500/api/comments/', obj)
       this.setState({reviews: [...reviews, ...res.data]})
