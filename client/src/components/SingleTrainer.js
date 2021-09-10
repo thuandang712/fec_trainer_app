@@ -1,8 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReviewInput from './reviews/ReviewInput';
 import Reviews from './reviews/Reviews';
-import ReviewItem from './reviews/ReviewItem';
-const SingleTrainer = ({singleTrainer, clearSingleTrainer, reviews}) => {
+import EditTrainer from './EditTrainer';
+
+const SingleTrainer = ({singleTrainer, clearSingleTrainer, reviews, deleteReview, editReview, editTrainer}) => {
+
+    // const {singleTrainer, changeLoadingAndSingleTrainer, editTrainer} = this.props
+    const [isEditing, setIsEditting] = useState(false)
+
+    // const handleStateChange = () => {
+    //     changeLoadingAndSingleTrainer()
+    // }
+
+    const handleEditChange = () => {
+        setIsEditting(!isEditing)
+    }
+
+    const buttonText = (isEditing)?"Cancel Edit" :"Edit Trainer"
+
+
     return (
         <div>
             <button onClick={() => clearSingleTrainer()}>GO HOME</button>
@@ -14,11 +30,14 @@ const SingleTrainer = ({singleTrainer, clearSingleTrainer, reviews}) => {
             <p>{`Power lifting: ${singleTrainer[0].power_lifting}`}</p>
             <p>{`Swimming: ${singleTrainer[0].swimming}`}</p>
             <p>{`Cycling: ${singleTrainer[0].cycling}`}</p>
+            <button onClick={handleEditChange}>{buttonText}</button>
+            {isEditing && <EditTrainer singleTrainer={singleTrainer}
+            editTrainer={editTrainer}/>}
             <div>
                 <ReviewInput />
             </div>
             <div>
-                <Reviews reviews={reviews}/>
+                <Reviews reviews={reviews} deleteReview={deleteReview} editReview={editReview}/>
             </div>
         </div>
     )
