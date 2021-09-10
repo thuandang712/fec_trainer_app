@@ -1,11 +1,28 @@
+<<<<<<< HEAD
 import React, {Fragment} from 'react'
 import ReviewInput from './reviews/ReviewInput';
 import Reviews from './reviews/Reviews';
 import {List} from 'semantic-ui-react'
+=======
+import React, { useState } from 'react'
+import ReviewInput from './reviews/ReviewInput';
+import Reviews from './reviews/Reviews';
+import EditTrainer from './EditTrainer';
+
+const SingleTrainer = ({singleTrainer, clearSingleTrainer, reviews, addReview, deleteReview, editReview, editTrainer}) => {
+
+    const [isEditing, setIsEditting] = useState(false)
+
+    const handleEditChange = () => {
+        setIsEditting(!isEditing)
+    }
+
+    const buttonText = (isEditing) ? "Cancel Edit" : "Edit Trainer"
+>>>>>>> 0e9bef13df53378ac865d9afa2c4df8daade423a
 
 
-const SingleTrainer = ({singleTrainer, clearSingleTrainer, reviews}) => {
     return (
+<<<<<<< HEAD
         <Fragment>
             <List>
                 <List.Item>
@@ -45,7 +62,27 @@ const SingleTrainer = ({singleTrainer, clearSingleTrainer, reviews}) => {
             <ReviewInput />
             <Reviews reviews={reviews}/>
         </Fragment>
+=======
+        <div>
+            <button onClick={() => clearSingleTrainer()}>GO HOME</button>
+            
+            <h1>{singleTrainer[0].first_name} {singleTrainer[0].last_name}</h1>
+            <h2>Schedule a consultation: </h2>
+            <h3>phone: {singleTrainer[0].phone_number} / email: {singleTrainer[0].email}!</h3>
+            <p>{`Bodybuilding: ${singleTrainer[0].bodybuilding}`}</p>
+            <p>{`Running: ${singleTrainer[0].running}`}</p>
+            <p>{`Power lifting: ${singleTrainer[0].power_lifting}`}</p>
+            <p>{`Swimming: ${singleTrainer[0].swimming}`}</p>
+            <p>{`Cycling: ${singleTrainer[0].cycling}`}</p>
+            <button onClick={handleEditChange}>{buttonText}</button>
+            {isEditing && <EditTrainer singleTrainer={singleTrainer}
+            editTrainer={editTrainer}/>}
+            <ReviewInput addReview={addReview} singleTrainer={singleTrainer}/>
+            <Reviews reviews={reviews} deleteReview={deleteReview} editReview={editReview}/>
+        </div>
+>>>>>>> 0e9bef13df53378ac865d9afa2c4df8daade423a
     )
+    
 }
 
 export default SingleTrainer
