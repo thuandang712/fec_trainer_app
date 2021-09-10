@@ -111,6 +111,7 @@ const Categories = ({trainers, selectSingleTrainer}) => {
             <div>
                 {swimmingTrainers}
                 <button onClick={handleGoBack}>Back</button>
+
             </div>
         )
     }
@@ -124,7 +125,6 @@ const Categories = ({trainers, selectSingleTrainer}) => {
             <h2 onClick={handleClickSwimming}>Swimming</h2>
         </div>
     )
+
 }
-
-
 export default Categories
