@@ -1,8 +1,9 @@
 import React, {Fragment, useState } from 'react'
 import TrainerItem from './TrainerItem'
+
 import {Grid} from 'semantic-ui-react'
 
-// bodybuilding, running, power_lifting, cycling, swimming
+
 const Categories = ({trainers, selectSingleTrainer}) => {
 
     const [bodyBuilding, setBodyBuilding] = useState(false)
@@ -110,7 +111,9 @@ const Categories = ({trainers, selectSingleTrainer}) => {
         return (
             <div>
                 {swimmingTrainers}
+
                 <button className="ui button" onClick={handleGoBack}>Back</button>
+
             </div>
         )
     }

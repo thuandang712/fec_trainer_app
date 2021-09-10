@@ -1,4 +1,5 @@
 import React from 'react'
+
 class EditTrainer extends React.Component {
 
     state = {
@@ -6,7 +7,6 @@ class EditTrainer extends React.Component {
         last_name: '',
         phone_number: '',
         email: '',
-        years_of_experience: '',
         bodybuilding: false,
         running: false,
         power_lifting: false,
@@ -16,28 +16,33 @@ class EditTrainer extends React.Component {
 
     componentDidMount() {
         this.setState({...this.props.singleTrainer[0]})
-    }     
+    }
+
     render() {
         window.global = this.state
         const{editTrainer, singleTrainer} = this.props
 
         const handleChange = (e) => {
-            console.log("Im updating this thing")
+            // console.log("Im updating this thing")
             const key = e.target.name //key should be the names of the elements; firstName, lastName, phoneNumber, etc.
+            
+            let value;
             if (e.target.type === "checkbox"){
-                var value = e.target.checked
+                value = e.target.checked
             } else {
-                var value = e.target.value
+                value = e.target.value
             }
             this.setState({[key]: value})
         }
 
         const handleSubmit = (e) => {
             e.preventDefault();
+            console.log(this.state)
             const obj = this.state
             editTrainer(singleTrainer[0].trainer_id, obj)
         }
     
+
     return (
         <center>
         <form className = 'add-Form' onSubmit={handleSubmit} id={singleTrainer[0].trainer_id}>
@@ -109,7 +114,9 @@ class EditTrainer extends React.Component {
         </center>
     )
     }
+
     }
+}
 
 
 export default EditTrainer

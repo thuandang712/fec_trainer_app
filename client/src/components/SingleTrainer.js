@@ -1,11 +1,23 @@
-import React, {Fragment} from 'react'
+
+import React, { useState } from 'react'
 import ReviewInput from './reviews/ReviewInput';
 import Reviews from './reviews/Reviews';
+import EditTrainer from './EditTrainer';
 import {List} from 'semantic-ui-react'
+const SingleTrainer = ({singleTrainer, clearSingleTrainer, reviews, addReview, deleteReview, editReview, editTrainer}) => {
+
+    const [isEditing, setIsEditting] = useState(false)
+
+    const handleEditChange = () => {
+        setIsEditting(!isEditing)
+    }
+
+    const buttonText = (isEditing) ? "Cancel Edit" : "Edit Trainer"
 
 
-const SingleTrainer = ({singleTrainer, clearSingleTrainer, reviews}) => {
+
     return (
+
         <Fragment>
             <List>
                 <List.Item>
@@ -45,7 +57,9 @@ const SingleTrainer = ({singleTrainer, clearSingleTrainer, reviews}) => {
             <ReviewInput />
             <Reviews reviews={reviews}/>
         </Fragment>
+
     )
+    
 }
 
 export default SingleTrainer
