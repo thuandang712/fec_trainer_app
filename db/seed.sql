@@ -7,7 +7,10 @@ insert into trainers (picture, first_name, last_name, email, phone_number, bodyb
 
 
 insert into comments (comment_body, trainer_id) values ('test', 1);
+insert into comments (comment_body, trainer_id) values ('good one', 1);
 insert into comments (comment_body, trainer_id) values ('whaterver', 2);
+insert into comments (comment_body, trainer_id) values ('greate', 2);
 insert into comments (comment_body, trainer_id) values ('sthomething', 4);
+insert into comments (comment_body, trainer_id) values ('best', 4);
 insert into comments (comment_body, trainer_id) values ('asdf124', 5);
-insert into comments (comment_body, trainer_id) values ('tes2351235t', 4);
+insert into comments (comment_body, trainer_id) values ('awesome', 5);
