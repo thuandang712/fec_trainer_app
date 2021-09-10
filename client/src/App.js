@@ -79,11 +79,12 @@ class App extends React.Component {
 
     return (
     <div className='container'>
-      <h1>Trainers Hubs</h1>
+      <h1 className="mainHeader">Trainers Hubs</h1>
+      <img className="workoutImg1" src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z3ltfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80"/>
       <h2> Test </h2>
+      <div className="trainersContainer">
       <Trainers trainers={trainers}/>
-    
-    
+      </div>    
     </div> 
   )
 }
