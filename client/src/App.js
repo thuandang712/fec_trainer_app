@@ -37,36 +37,9 @@ class App extends React.Component {
     //   this.setState({reviews: [...reviews, ...res.data]})
     // }
 
-    // // Delete reviews
-    // const deletereviews = async(id) => {
-    //   await axios.delete(`http://localhost:5500/api/trainer/${id}`)
-    //   this.setState({reviews: reviewss.filter(reviews => reviews.reviews_id !== id)})
-    // }
 
-    // const editreviews = async(obj) => {
-    //   const updatedreviews= reviewss.map(reviews => {
-    //     if(obj.reviewss_id === reviews.reviewss_id) {
-          
-    //       reviews.reviewss = obj.reviewss
-    //     } return reviews
-    //   })
-    //   this.setState({reviewss: updatedreviews})
-    //   this.setState({singlereviews: null}) 
-      
-      
-    //   let newUpdate = {
-    //     reviewss: obj.reviewss
-    //   }
-    //   await axios.patch(`http://localhost:4040/api/reviewss/${obj.reviewss_id}`, newUpdate)
-    // }
 
-    const editTrainer = async (id, fixedTrainer) => {
-      this.setState({loading: true})
-      const res = await axios.patch(`/api/trainer/${id}`, fixedTrainer)
-      console.log("this is res from the patch request", res)
-      this.setState({loading: false, singleTrainer: null})
-      this.componentDidMount()
-    };
+    
     
 
     // select single trainer 
@@ -83,6 +56,39 @@ class App extends React.Component {
       this.setState({singleTrainer: null})
     }
 
+    // edit Trainer
+    const editTrainer = (id, obj) => {
+      console.log(id)
+      console.log(obj)
+    }
+
+    // Delete reviews
+    const deleteReview = async(id) => {
+      // await axios.delete(`http://localhost:5500/api/trainer/${id}`)
+      this.setState({reviews: reviews.filter(reviews => reviews.comment_id !== id)})
+    }
+
+    // Edit review
+    const editReview = async(obj) => {
+      const newReview = reviews.map(reviews => {
+        if(reviews.comment_id === obj.comment_id) {  
+            reviews.comment_body = obj.comment_body
+        }
+        return reviews
+      })
+      this.setState({reviews: newReview})
+      // this.setState({singlereviews: null}) 
+      
+      
+      // let newUpdate = {
+      //   reviewss: obj.reviewss
+      // }
+      // await axios.patch(`http://localhost:4040/api/reviewss/${obj.reviewss_id}`, newUpdate)
+
+    }
+
+
+
     if (loading) {
       return <Loading/>
     }
@@ -93,24 +99,22 @@ class App extends React.Component {
         <div>
           <SingleTrainer singleTrainer={singleTrainer}
           clearSingleTrainer={clearSingleTrainer}
-          editTrainer={editTrainer}
-          reviews={reviews}/>
+          reviews={reviews} deleteReview={deleteReview} editReview={editReview}
+          editTrainer={editTrainer}/>
         </div>
       )
     }
 
 
     return (
-
-    <div className='container'>
-      <h1>Trainers Hubs</h1>
-      <h2> Be your most fittest self </h2>
-      <Categories trainers={trainers}
-      selectSingleTrainer={selectSingleTrainer}/>
-      {/* <Trainers trainers={trainers}/> */}
-    </div> 
-  )
-}
+      <div className='container'>
+        <h1>Trainers Hubs</h1>
+        <Categories trainers={trainers}
+        selectSingleTrainer={selectSingleTrainer}/>    
+      </div>
+    )
+  }
 
 }
+
 export default App;
