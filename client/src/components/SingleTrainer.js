@@ -22,10 +22,11 @@ const SingleTrainer = ({singleTrainer, clearSingleTrainer, reviews, deleteReview
     return (
         <div>
             <button onClick={() => clearSingleTrainer()}>GO HOME</button>
-            <h1>{`Name: ${singleTrainer[0].first_name} ${singleTrainer[0].last_name}`}</h1>
-            <p>{`Email: ${singleTrainer[0].email}`}</p>
-            <p>{`Phone: ${singleTrainer[0].phone_number}`}</p>
-            <p>{`Body building: ${singleTrainer[0].bodybuilding}`}</p>
+            
+            <h1>{singleTrainer[0].first_name} {singleTrainer[0].last_name}</h1>
+            <h2>Schedule a consultation: </h2>
+            <h3>phone: {singleTrainer[0].phone_number} / email: {singleTrainer[0].email}!</h3>
+            <p>{`Bodybuilding: ${singleTrainer[0].bodybuilding}`}</p>
             <p>{`Running: ${singleTrainer[0].running}`}</p>
             <p>{`Power lifting: ${singleTrainer[0].power_lifting}`}</p>
             <p>{`Swimming: ${singleTrainer[0].swimming}`}</p>
@@ -41,6 +42,7 @@ const SingleTrainer = ({singleTrainer, clearSingleTrainer, reviews, deleteReview
             </div>
         </div>
     )
+    
 }
 
 export default SingleTrainer

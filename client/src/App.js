@@ -76,7 +76,6 @@ class App extends React.Component {
         }
         return reviews
       })
-      console.log(newReview)
       this.setState({reviews: newReview})
       // this.setState({singlereviews: null}) 
       
@@ -108,16 +107,14 @@ class App extends React.Component {
 
 
     return (
-
-    <div className='container'>
-      <h1>Trainers Hubs</h1>
-      <h2> Be your most fittest self </h2>
-      <Categories trainers={trainers}
-      selectSingleTrainer={selectSingleTrainer}/>
-      {/* <Trainers trainers={trainers}/> */}
-    </div> 
-  )
-}
+      <div className='container'>
+        <h1>Trainers Hubs</h1>
+        <Categories trainers={trainers}
+        selectSingleTrainer={selectSingleTrainer}/>    
+      </div>
+    )
+  }
 
 }
+
 export default App;
