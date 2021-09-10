@@ -3,20 +3,15 @@ import ReviewInput from './reviews/ReviewInput';
 import Reviews from './reviews/Reviews';
 import EditTrainer from './EditTrainer';
 
-const SingleTrainer = ({singleTrainer, clearSingleTrainer, reviews, deleteReview, editReview, editTrainer}) => {
+const SingleTrainer = ({singleTrainer, clearSingleTrainer, reviews, addReview, deleteReview, editReview, editTrainer}) => {
 
-    // const {singleTrainer, changeLoadingAndSingleTrainer, editTrainer} = this.props
     const [isEditing, setIsEditting] = useState(false)
-
-    // const handleStateChange = () => {
-    //     changeLoadingAndSingleTrainer()
-    // }
 
     const handleEditChange = () => {
         setIsEditting(!isEditing)
     }
 
-    const buttonText = (isEditing)?"Cancel Edit" :"Edit Trainer"
+    const buttonText = (isEditing) ? "Cancel Edit" : "Edit Trainer"
 
 
     return (
@@ -34,12 +29,8 @@ const SingleTrainer = ({singleTrainer, clearSingleTrainer, reviews, deleteReview
             <button onClick={handleEditChange}>{buttonText}</button>
             {isEditing && <EditTrainer singleTrainer={singleTrainer}
             editTrainer={editTrainer}/>}
-            <div>
-                <ReviewInput />
-            </div>
-            <div>
-                <Reviews reviews={reviews} deleteReview={deleteReview} editReview={editReview}/>
-            </div>
+            <ReviewInput addReview={addReview} singleTrainer={singleTrainer}/>
+            <Reviews reviews={reviews} deleteReview={deleteReview} editReview={editReview}/>
         </div>
     )
     

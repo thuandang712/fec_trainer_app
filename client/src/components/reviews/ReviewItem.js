@@ -1,18 +1,39 @@
 import React, { useState } from 'react'
-import EditReview from './EditReview'
+// import EditReview from './EditReview'
 
 const ReviewItem = ({review, deleteReview, editReview}) => {
     
-    const [isEditing, setIsEditting] = useState(false)
+    // edit review, edit text states
+    const [isEditing, setIsEditing] = useState(false)
+    const [editText, setEditText] = useState('')
 
     const handleDelete = (e) => {
-        console.log(e.target.id)
         deleteReview(parseInt(e.target.id))
     }
 
     const handleEditStateChange = () => {
-        setIsEditting(true)
+        setIsEditing(!isEditing)
     }
+
+    const buttonText = (isEditing) ? "Cancel Edit" : "Edit Review"
+
+    const handleTextChange = (e) => {
+        setEditText(e.target.value)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const updatedReview = {
+            comment_id: parseInt(e.target.id),
+            comment_body: editText,
+            trainer_id: review.trainer_id
+        }
+        editReview(updatedReview)
+        setEditText('')
+        setIsEditing(false)
+    }
+
+
 
     return(
         <div className="reviewItem">
@@ -20,8 +41,14 @@ const ReviewItem = ({review, deleteReview, editReview}) => {
             <p>Review ID: {review.comment_id}</p>
             <p>Belongs to trainer ID: {review.trainer_id}</p>
             <button className="btn hover" id={review.comment_id} onClick={handleDelete}>Delete Review</button>
-            <button onClick={handleEditStateChange}>Edit Review</button>
-            {isEditing && <EditReview review={review} editReview={editReview}/>}
+            <button onClick={handleEditStateChange}>{buttonText}</button>
+            {isEditing &&
+            <div>
+                <form onSubmit={handleSubmit} id={review.comment_id}>
+                    <input className="label" type="text" value={editText} onChange={handleTextChange}/>
+                    <input type="submit" className="btn hover"/>
+                </form>
+            </div>}
         </div>
     )
 }
