@@ -11,8 +11,7 @@ const Reviews = ({reviews, deleteReview, editReview}) => {
                 key={review.comment_id} 
                 review={review} 
                 deleteReview={deleteReview}
-                editReview={editReview}
-                />
+                editReview={editReview}/>
             ))}
         </div>
     ) 

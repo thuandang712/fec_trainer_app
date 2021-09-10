@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-// import EditReview from './EditReview'
 
 const ReviewItem = ({review, deleteReview, editReview}) => {
     
