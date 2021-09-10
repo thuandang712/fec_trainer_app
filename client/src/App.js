@@ -60,7 +60,13 @@ class App extends React.Component {
     //   await axios.patch(`http://localhost:4040/api/reviewss/${obj.reviewss_id}`, newUpdate)
     // }
 
-    
+    const editTrainer = async (id, fixedTrainer) => {
+      this.setState({loading: true})
+      const res = await axios.patch(`/api/trainer/${id}`, fixedTrainer)
+      console.log("this is res from the patch request", res)
+      this.setState({loading: false, singleTrainer: null})
+      this.componentDidMount()
+    };
     
 
     // select single trainer 
@@ -87,6 +93,7 @@ class App extends React.Component {
         <div>
           <SingleTrainer singleTrainer={singleTrainer}
           clearSingleTrainer={clearSingleTrainer}
+          editTrainer={editTrainer}
           reviews={reviews}/>
         </div>
       )
