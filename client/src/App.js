@@ -94,9 +94,9 @@ class App extends React.Component {
 
 
     return (
-    <div className='container'>
-      <h1>Trainers Hubs</h1>
-      <h2> Be your most fittest self </h2>
+    <div className='mainPageContainer'>
+      <h1 className="mainHeader">Trainers Hubs</h1>
+      <h2 className="secondaryHeader"> Be your most fit self</h2>
       <Categories trainers={trainers}
       selectSingleTrainer={selectSingleTrainer}/>
       {/* <Trainers trainers={trainers}/> */}

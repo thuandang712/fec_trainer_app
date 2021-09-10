@@ -104,7 +104,7 @@ class EditTrainer extends React.Component {
                 checked={this.state.cycling}
                 onChange={handleChange}/>
             </div>
-            <button type="submit" value='Edit Trainer' className='btnPost' >Submit</button>
+            <button className="ui button" type="submit" value='Edit Trainer'>Submit</button>
         </form>
         </center>
     )
