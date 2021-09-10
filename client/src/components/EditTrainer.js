@@ -34,6 +34,7 @@ class EditTrainer extends React.Component {
 
         const handleSubmit = (e) => {
             e.preventDefault();
+            console.log(this.state)
             const obj = this.state
             editTrainer(singleTrainer[0].trainer_id, obj)
         }
