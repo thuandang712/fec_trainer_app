@@ -46,11 +46,11 @@ class App extends React.Component {
     }
 
 
-    // ******** edit Trainer ******************************
-    const editTrainer = (id, obj) => {
-      console.log(id)
-      console.log(obj)
-    }
+    // // ******** edit Trainer ******************************
+    // const editTrainer = (id, obj) => {
+    //   console.log(id)
+    //   console.log(obj)
+    // }
 
 
 
@@ -101,7 +101,7 @@ class App extends React.Component {
         <SingleTrainer singleTrainer={singleTrainer}
         clearSingleTrainer={clearSingleTrainer}
         reviews={reviews} addReview={addReview} deleteReview={deleteReview} editReview={editReview}
-        editTrainer={editTrainer}/>
+        />
       )
     }
 
