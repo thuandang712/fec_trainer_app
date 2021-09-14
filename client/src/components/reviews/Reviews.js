@@ -7,7 +7,7 @@ const Reviews = ({reviews, deleteReview, editReview}) => {
     return (
         <div className='review'>
             {reviews.map(review => (
-                <ReviewItem 
+                <ReviewItem className="reviewItem" 
                 key={review.comment_id} 
                 review={review} 
                 deleteReview={deleteReview}

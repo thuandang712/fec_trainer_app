@@ -45,8 +45,8 @@ const ReviewItem = ({review, deleteReview, editReview}) => {
             {isEditing &&
             <div>
                 <form onSubmit={handleSubmit} id={review.comment_id}>
-                    <input className="label" type="text" value={editText} onChange={handleTextChange}/>
-                    <input type="submit" className="btn hover"/>
+                    <input className="label" type="text" value={editText} onChange={handleTextChange} placeholder="Edit review..."/>
+                    <input type="submit" className="ui primary button"/>
                 </form>
             </div>}
         </div>

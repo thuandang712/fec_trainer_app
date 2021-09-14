@@ -81,40 +81,48 @@ const Categories = ({trainers, selectSingleTrainer}) => {
     // conditional rendering
     if (bodyBuilding) {
         return (
-            <div>
-                {bodyBuildingTrainers}
-                <button className="ui button" onClick={handleGoBack}>Back</button>
-            </div>
+            <Fragment>
+                <button className="ui button back-btn" onClick={handleGoBack}>Back</button>
+                <div className='trainers-grid-container'>
+                    {bodyBuildingTrainers}
+                </div>
+            </Fragment>
         )
     } else if (running) {
         return (
-            <div>
-                {runningTrainers}
-                <button className="ui button" onClick={handleGoBack}>Back</button>
-            </div>
+            <Fragment>
+                <button className="ui button back-btn" onClick={handleGoBack}>Back</button>
+                <div className='trainers-grid-container'>
+                    {runningTrainers}
+                </div>
+            </Fragment>
         )
     } else if (powerLifting) {
         return (
-            <div>
-                {powerLiftingTrainers}
-                <button className="ui button" onClick={handleGoBack}>Back</button>
-            </div>
+            <Fragment>
+                <button className="ui button back-btn" onClick={handleGoBack}>Back</button>
+                <div className='trainers-grid-container'>
+                    {powerLiftingTrainers}
+                </div>
+            </Fragment>
         )
     } else if (cycling) {
         return (
-            <div>
-                {cyclingTrainers}
-                <button className="ui button" onClick={handleGoBack}>Back</button>
-            </div>
+            <Fragment>
+                <button className="ui button back-btn" onClick={handleGoBack}>Back</button>
+                <div className='trainers-grid-container'>
+                    {cyclingTrainers}
+                </div>
+            </Fragment>
         )
     } else if (swimming) {
         return (
-            <div>
-                {swimmingTrainers}
-
-                <button className="ui button" onClick={handleGoBack}>Back</button>
-
-            </div>
+            <Fragment>
+                <button className="ui button back-btn" onClick={handleGoBack}>Back</button>
+                <div className='trainers-grid-container'>
+                    {swimmingTrainers}
+                </div>
+            </Fragment>
         )
     }
 
