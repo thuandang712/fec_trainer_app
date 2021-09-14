@@ -53,7 +53,9 @@ class App extends React.Component {
     }
 
 
+
     // ADD reviews -- add data validation
+
     const addReview = async(obj) => {
       const res = await axios.post('http://localhost:5500/api/comments/', obj)
       this.setState({reviews: [...reviews, ...res.data]})
@@ -107,14 +109,15 @@ class App extends React.Component {
 
 
     return (
-      <div className='container'>
-        <h1>Trainers Hubs</h1>
-        <Categories trainers={trainers}
-        selectSingleTrainer={selectSingleTrainer}/>    
-      </div>
+    <div className='mainPageContainer'>
+      <h1 className="mainHeader">Trainers R Us</h1>
+      <h2 className="secondaryHeader"> BE YOUR MOST FIT SELF!</h2>
+      <Categories trainers={trainers}
+      selectSingleTrainer={selectSingleTrainer}/>
+      {/* <Trainers trainers={trainers}/> */}
+    </div> 
     )
-  }
-
+  }  
 }
 
 export default App;
