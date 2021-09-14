@@ -36,10 +36,12 @@ const ReviewItem = ({review, deleteReview, editReview}) => {
 
 
     return(
-        <div className="reviewItems">
-            <h1 className="review">{review.comment_body}</h1>
-            <button className="ui primary button" id={review.comment_id} onClick={handleDelete}>Delete Review</button>
-            <button className="ui primary button" onClick={handleEditStateChange}>{buttonText}</button>
+        <div className="reviewItem">
+            <h1 className="hover">{review.comment_body}</h1>
+            {/* <p>Review ID: {review.comment_id}</p>
+            <p>Belongs to trainer ID: {review.trainer_id}</p> */}
+            <button className="btn hover" id={review.comment_id} onClick={handleDelete}>Delete Review</button>
+            <button onClick={handleEditStateChange}>{buttonText}</button>
             {isEditing &&
             <div>
                 <form onSubmit={handleSubmit} id={review.comment_id}>
