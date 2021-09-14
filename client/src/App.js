@@ -98,12 +98,10 @@ class App extends React.Component {
 
     if (singleTrainer) {
       return (
-        <div>
-          <SingleTrainer singleTrainer={singleTrainer}
-          clearSingleTrainer={clearSingleTrainer}
-          reviews={reviews} addReview={addReview} deleteReview={deleteReview} editReview={editReview}
-          editTrainer={editTrainer}/>
-        </div>
+        <SingleTrainer singleTrainer={singleTrainer}
+        clearSingleTrainer={clearSingleTrainer}
+        reviews={reviews} addReview={addReview} deleteReview={deleteReview} editReview={editReview}
+        editTrainer={editTrainer}/>
       )
     }
 
@@ -114,7 +112,6 @@ class App extends React.Component {
       <h2 className="secondaryHeader"> BE YOUR MOST FIT SELF!</h2>
       <Categories trainers={trainers}
       selectSingleTrainer={selectSingleTrainer}/>
-      {/* <Trainers trainers={trainers}/> */}
     </div> 
     )
   }  
