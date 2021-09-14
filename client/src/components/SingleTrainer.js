@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import ReviewInput from './reviews/ReviewInput';
 import Reviews from './reviews/Reviews';
-import EditTrainer from './EditTrainer';
 
 const SingleTrainer = ({singleTrainer, clearSingleTrainer, reviews, addReview, deleteReview, editReview, editTrainer}) => {
 
@@ -27,8 +26,6 @@ const SingleTrainer = ({singleTrainer, clearSingleTrainer, reviews, addReview, d
             <p>{`Swimming: ${singleTrainer[0].swimming}`}</p>
             <p>{`Cycling: ${singleTrainer[0].cycling}`}</p>
             <button onClick={handleEditChange}>{buttonText}</button>
-            {isEditing && <EditTrainer singleTrainer={singleTrainer}
-            editTrainer={editTrainer}/>}
             <ReviewInput addReview={addReview} singleTrainer={singleTrainer}/>
             <Reviews reviews={reviews} deleteReview={deleteReview} editReview={editReview}/>
         </div>
