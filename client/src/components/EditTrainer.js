@@ -42,79 +42,6 @@ class EditTrainer extends React.Component {
             editTrainer(singleTrainer[0].trainer_id, obj)
         }
     
-<<<<<<< HEAD
-        return (
-            <center>
-            <form className = 'add-Form' onSubmit={handleSubmit} id={singleTrainer[0].trainer_id}>
-                <div className= 'form-control'>
-                    <label>First Name</label>
-                    <input type='text' placeholder='First Name'
-                    name = "first_name"
-                    value= {this.state.first_name}
-                    onChange={handleChange}/>
-                </div>
-                <div className= 'form-control'>
-                    <label>Last Name</label>
-                    <input type='text' placeholder='Last Name'
-                    name= "last_name"
-                    value= {this.state.last_name}
-                    onChange={handleChange}/>
-                </div>
-                <div className= 'form-control'>
-                    <label>Phone Number</label>
-                    <input type="text" placeholder='Phone Number'
-                    name= "phone_number"
-                    value= {this.state.phone_number}
-                    onChange={handleChange}/>
-                </div>
-                <div className= 'form-control'>
-                    <label>Email</label>
-                    <input type='text' placeholder='Email'
-                    name= "email"
-                    value= {this.state.email}
-                    onChange={handleChange}/>
-                </div>
-                <div className= 'form-control form-control-check'>
-                    <label>Bodybuilding</label>
-                    <input type='checkbox'
-                    name = "bodybuilding"
-                    checked={this.state.bodybuilding}
-                    onChange={handleChange}/>
-                </div>
-                <div className= 'form-control form-control-check'>
-                    <label>Running</label>
-                    <input type='checkbox'
-                    name = "running"
-                    checked={this.state.running}
-                    onChange={handleChange}/>
-                </div>
-                <div className= 'form-control form-control-check'>
-                    <label>Power Lifting</label>
-                    <input type='checkbox'
-                    name = "power_lifting"
-                    checked={this.state.power_lifting}
-                    onChange={handleChange}/>
-                </div>
-                <div className= 'form-control form-control-check'>
-                    <label>Swimming</label>
-                    <input type='checkbox'
-                    name = "swimming"
-                    checked={this.state.swimming}
-                    onChange={handleChange}/>
-                </div>
-                <div className= 'form-control form-control-check'>
-                    <label>Cycling</label>
-                    <input type='checkbox'
-                    name = "cycling"
-                    checked={this.state.cycling}
-                    onChange={handleChange}/>
-                </div>
-                <button type="submit" className='btnPost' >Submit to Edit</button>
-            </form>
-            </center>
-        )
-    }
-=======
 
     return (
         <center>
@@ -188,7 +115,6 @@ class EditTrainer extends React.Component {
     )
     }
 
->>>>>>> fcac62ee00af499d95a85e83328b8f15a6a5f652
 }
 
 
