@@ -63,7 +63,6 @@ app.delete('/api/trainers/:id', async (req, res, next) => {
 })
 
 app.patch('/api/trainers/:id', async (req, res, next) => {
-    console.log(req.body)
     try {
         const {first_name, last_name, email, phone_number, bodybuilding, running, power_lifting, cycling, swimming} = req.body
         const {id} = req.params

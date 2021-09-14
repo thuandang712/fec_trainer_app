@@ -12,7 +12,7 @@ const TrainerItem = ({trainer, selectSingleTrainer}) => {
         <List>
             <List.Item>
                 <List.Content>
-                    <h1 id={trainer.trainer_id} onClick={handleSingleTrainer}>{`${trainer.first_name} ${trainer.last_name}`}</h1>
+                    <h1 className="catTrainerName" id={trainer.trainer_id} onClick={handleSingleTrainer}>{`${trainer.first_name} ${trainer.last_name}`}</h1>
                 </List.Content>
             </List.Item>
             <List.Item>
