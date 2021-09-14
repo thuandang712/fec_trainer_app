@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, {Fragment, useState } from 'react'
 import TrainerItem from './TrainerItem'
 
+import {Grid} from 'semantic-ui-react'
 
-// bodybuilding, running, power_lifting, cycling, swimming
+
 const Categories = ({trainers, selectSingleTrainer}) => {
 
     const [bodyBuilding, setBodyBuilding] = useState(false)
@@ -82,49 +83,64 @@ const Categories = ({trainers, selectSingleTrainer}) => {
         return (
             <div>
                 {bodyBuildingTrainers}
-                <button onClick={handleGoBack}>Back</button>
+                <button className="ui button" onClick={handleGoBack}>Back</button>
             </div>
         )
     } else if (running) {
         return (
             <div>
                 {runningTrainers}
-                <button onClick={handleGoBack}>Back</button>
+                <button className="ui button" onClick={handleGoBack}>Back</button>
             </div>
         )
     } else if (powerLifting) {
         return (
             <div>
                 {powerLiftingTrainers}
-                <button onClick={handleGoBack}>Back</button>
+                <button className="ui button" onClick={handleGoBack}>Back</button>
             </div>
         )
     } else if (cycling) {
         return (
             <div>
                 {cyclingTrainers}
-                <button onClick={handleGoBack}>Back</button>
+                <button className="ui button" onClick={handleGoBack}>Back</button>
             </div>
         )
     } else if (swimming) {
         return (
             <div>
                 {swimmingTrainers}
-                <button onClick={handleGoBack}>Back</button>
+
+                <button className="ui button" onClick={handleGoBack}>Back</button>
+
             </div>
         )
     }
 
     return (
-        <div>
-            <h2 onClick={handleClickBody}>Body Building</h2>
-            <h2 onClick={handleClickRunning}>Running</h2>
-            <h2 onClick={handleClickPowerLifting}>Power Lifting</h2>
-            <h2 onClick={handleClickCycling}>Cycling</h2>
-            <h2 onClick={handleClickSwimming}>Swimming</h2>
-        </div>
+        <Fragment>
+            <Grid columns={5} divided>
+                <Grid.Row>
+                    <Grid.Column>
+                        <h2 className="catagoriesItem" onClick={handleClickBody}>Body Building</h2>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <h2 className="catagoriesItem" onClick={handleClickRunning}>Running</h2>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <h2 className="catagoriesItem" onClick={handleClickSwimming}>Swimming</h2>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <h2 className="catagoriesItem" onClick={handleClickCycling}>Cycling</h2>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <h2 className="catagoriesItem" onClick={handleClickPowerLifting}>Power Lifting</h2>
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
+        </Fragment>
     )
+
 }
-
-
 export default Categories

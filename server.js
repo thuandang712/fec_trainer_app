@@ -5,10 +5,10 @@ const cors = require('cors')
 const { Pool } = require('pg');
 
 const pool = new Pool({
-    user: 'thuandang',
-    password: '',
+    user: 'jacobcantu',
+    // password: 'password',
     host: 'localhost',
-    // port: 5432,
+    // port: 5434,
     database: 'fce'
 })
 
@@ -63,11 +63,12 @@ app.delete('/api/trainers/:id', async (req, res, next) => {
 })
 
 app.patch('/api/trainers/:id', async (req, res, next) => {
+    console.log(req.body)
     try {
-        const {picture, first_name, last_name, email, phone_number, bodybuilding, running, power_lifting, cycling, swimming} = req.body
+        const {first_name, last_name, email, phone_number, bodybuilding, running, power_lifting, cycling, swimming} = req.body
         const {id} = req.params
         // add data validation
-        const {rows} = await pool.query('UPDATE trainers SET picture = $1, first_name = $2, last_name = $3, email = $4, phone_number = $5, bodybuilding = $6, running = $7, power_lifting = $8, cycling = $9, swimming = $10 WHERE trainer_id = $11 RETURNING *', [picture, first_name, last_name, email, phone_number, bodybuilding, running, power_lifting, cycling, swimming, id])
+        const {rows} = await pool.query('UPDATE trainers SET first_name = $1, last_name = $2, email = $3, phone_number = $4, bodybuilding = $5, running = $6, power_lifting = $7, cycling = $8, swimming = $9 WHERE trainer_id = $10 RETURNING *', [first_name, last_name, email, phone_number, bodybuilding, running, power_lifting, cycling, swimming, id])
         res.status(200).json(rows)
     } catch (error) {
         console.log(error)

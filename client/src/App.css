@@ -1,38 +1,132 @@
+* {
+  margin: 0px;
+  padding: 0px;
+    border: 0px;
+  }
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.trainerItemContainer {
+  border: 1px solid rgb(96, 214, 141);
+  width: 430px;
+  height: 150px;
+  text-align: center;
+  margin-top: 3rem;
+  margin-left: 6rem;
+  background: rgba(42, 49, 50, 0.8);
+  color: rgb(136, 91, 24);
+  font-weight: bold;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.trainerItemContainer:hover {
+  cursor: pointer;
+  background: rgb(10, 10, 10, .8);
+  font-size: 20px;
+  transition: ease-in-out .3s;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+ body {
+  border: 1px solid red;
+  height: 100%;
+  margin: 0;
+  background-image: url(https://cutewallpaper.org/21/workout-backgrounds/Sport-concept-background.-equipment-for-workout.-Photo-.jpg);
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+
+.trainerEmail {
+  color: rgb(136, 91, 24);
+}
+
+.mainHeader {
+  text-align: center;
+  color: rgb(136, 91, 24);
+  text-decoration: underline;
+  font-size: 4rem;
+}
+
+.workoutImg1 {
+
+  height: 950px;
+  width: 800px;
+  float: right;
+  margin-right: 320px;
+  padding-top: 35px;
+  margin-top: 3rem;
+}
+
+html { 
+  background: url(https://cutewallpaper.org/21/workout-backgrounds/Sport-concept-background.-equipment-for-workout.-Photo-.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+.trainersContainer {
+  
+  width: 600px;
+  height: 1000px;
+  margin-left: 150px;
+}
+
+.mainPageContainer {
+  display: grid;
+  height: 100%;
+  /* background-image: url(https://cutewallpaper.org/21/workout-backgrounds/Sport-concept-background.-equipment-for-workout.-Photo-.jpg); */
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-attachment: fixed;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.catagoriesItem:hover {
+  cursor: pointer;
+  opacity: .8;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.catagoriesItem {
+  color: rgb(136, 91, 24);
 }
+
+.catagoriesContainer {
+  height: 100%;
+  border: 1px solid red;
+  width: 200px;
+  margin-left: 0rem;
+  background-image: url(https://cutewallpaper.org/21/workout-backgrounds/Sport-concept-background.-equipment-for-workout.-Photo-.jpg);
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.secondaryHeader {
+  text-align: center;
+  text-decoration: bold;
+  color:rgba(42, 49, 50, 0.8);
+  padding-top: 2rem;
+  padding-bottom: 20rem;
+}
+
+.review {
+  text-align: center;
+  margin-bottom: 4rem;
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 1px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);;
+  transition: all 0.3s linear;
+  text-align: center;
+}
+
+.review:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
