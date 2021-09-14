@@ -109,17 +109,15 @@ class App extends React.Component {
 
 
     return (
-
     <div className='mainPageContainer'>
-      <h1 className="mainHeader">Trainers Hubs</h1>
-      <h2 className="secondaryHeader"> Be your most fit self</h2>
+      <h1 className="mainHeader">Trainers R Us</h1>
+      <h2 className="secondaryHeader"> BE YOUR MOST FIT SELF!</h2>
       <Categories trainers={trainers}
       selectSingleTrainer={selectSingleTrainer}/>
       {/* <Trainers trainers={trainers}/> */}
     </div> 
-  )
-}
-
+    )
+  }  
 }
 
 export default App;

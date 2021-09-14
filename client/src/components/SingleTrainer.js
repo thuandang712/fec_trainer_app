@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from 'react'
+
 import ReviewInput from './reviews/ReviewInput';
 import Reviews from './reviews/Reviews';
 import EditTrainer from './EditTrainer';
@@ -17,53 +18,49 @@ const SingleTrainer = ({singleTrainer, clearSingleTrainer, reviews, addReview, d
 
 
     return (
-
-        // <Fragment>
-        //     <List>
-        //         <List.Item>
-        //             <List.Icon name='users' />
-        //             <List.Content>
-        //                 <h1>{`Name: ${singleTrainer[0].first_name} ${singleTrainer[0].last_name}`}</h1>
-        //             </List.Content>
-        //         </List.Item>
-        //         <List.Item>
-        //             <List.Icon name='marker' />
-        //             <List.Content>New York, NY</List.Content>
-        //         </List.Item>
-        //         <List.Item>
-        //             <List.Icon name='mail' />
-        //             <List.Content>
-        //                 <a href='mailto:jack@semantic-ui.com'>jack@semantic-ui.com</a>
-        //             </List.Content>
-        //         </List.Item>
-        //         <List.Item>
-        //             <List.Icon name='linkify' />
-        //             <List.Content>
-        //                     <a href='http://www.semantic-ui.com'>semantic-ui.com</a>
-        //             </List.Content>
-        //         </List.Item>
-        //     </List>
-
-        //     {/* <ReviewInput />
-        //     <Reviews reviews={reviews}/>
-        // </Fragment> */}
-        <div>
-            <button onClick={() => clearSingleTrainer()}>GO HOME</button>
-            <h1>{singleTrainer[0].first_name} {singleTrainer[0].last_name}</h1>
-            <h2>Schedule a consultation: </h2>
-            <h3>phone: {singleTrainer[0].phone_number} / email: {singleTrainer[0].email}!</h3>
-            <p>{`Bodybuilding: ${singleTrainer[0].bodybuilding}`}</p>
-            <p>{`Running: ${singleTrainer[0].running}`}</p>
-            <p>{`Power lifting: ${singleTrainer[0].power_lifting}`}</p>
-            <p>{`Swimming: ${singleTrainer[0].swimming}`}</p>
-            <p>{`Cycling: ${singleTrainer[0].cycling}`}</p>
-            <button onClick={handleEditChange}>{buttonText}</button>
+        <div className="singleTrainerContainer">
+            <button className="ui primary button" onClick={() => clearSingleTrainer()}>Go Home</button>
+            <List>
+                <List.Item>
+                    <List.Content className="singleTrainerItemName">
+                        <h1 className="singeTrainerNameSize">{`${singleTrainer[0].first_name} ${singleTrainer[0].last_name}`}</h1>
+                    </List.Content>
+                </List.Item>
+                <List.Item>
+                    <List.Content className="singleTrainerItem">
+                        <h2>Schedule a consultation: <List.Icon name='phone'/> {singleTrainer[0].phone_number} | <List.Icon name='mail'/>  {singleTrainer[0].email}</h2>
+                    </List.Content>
+                </List.Item>
+                <List.Item>
+                    <List.Content className="singleTrainerItem">
+                        <h2 className="checkOutHeader">Check out my reviews!</h2>
+                        <h2>   <i class="angle double down icon"></i>   <i class="angle double down icon"></i>   <i class="angle double down icon"></i>   </h2>
+                    </List.Content>
+                </List.Item>
+            </List>
             {isEditing && <EditTrainer singleTrainer={singleTrainer}
             editTrainer={editTrainer}/>}
+            <Reviews reviews={reviews} deleteReview={deleteReview} editReview={editReview} />
             <ReviewInput addReview={addReview} singleTrainer={singleTrainer}/>
-            <Reviews reviews={reviews} deleteReview={deleteReview} editReview={editReview}/>
         </div>
     )
+        // { <div>
+        //     <button onClick={() => clearSingleTrainer()}>GO HOME</button>
+        //     <h1>{singleTrainer[0].first_name} {singleTrainer[0].last_name}</h1>
+        //     <h2>Schedule a consultation: </h2>
+        //     <h3>phone: {singleTrainer[0].phone_number} / email: {singleTrainer[0].email}!</h3>
+        //     <p>{`Bodybuilding: ${singleTrainer[0].bodybuilding}`}</p>
+        //     <p>{`Running: ${singleTrainer[0].running}`}</p>
+        //     <p>{`Power lifting: ${singleTrainer[0].power_lifting}`}</p>
+        //     <p>{`Swimming: ${singleTrainer[0].swimming}`}</p>
+        //     <p>{`Cycling: ${singleTrainer[0].cycling}`}</p>
+        //     <button onClick={handleEditChange}>{buttonText}</button>
+        //     {isEditing && <EditTrainer singleTrainer={singleTrainer}
+        //     editTrainer={editTrainer}/>}
+        //     <ReviewInput addReview={addReview} singleTrainer={singleTrainer}/>
+        //     <Reviews reviews={reviews} deleteReview={deleteReview} editReview={editReview}/>
+        // </div> }
+    
     
 }
 
