@@ -2,8 +2,8 @@ const express = require('express')
 const app = express();
 const PORT = process.env.PORT || 5500;
 const cors = require('cors')
-const { Pool } = require('pg');
 
+<<<<<<< HEAD
 const pool = new Pool({
     user: 'root',
     password: 'password',
@@ -11,144 +11,16 @@ const pool = new Pool({
     port: 5433,
     database: 'fce'
 })
+=======
+>>>>>>> 4d33f25ff2374d78dfc90a62e2d9371ea67f2ff9
 
 app.use(express.json())
 app.use(cors())
 
-/**********************************************************/
-//GET ALL
-app.get('/api/trainers', async (req, res, next) => {
-    try {
-        const {rows} = await pool.query('SELECT * FROM trainers')
-        res.status(200).json(rows)
-    } catch (error) {
-        console.log(error)
-        res.status(500).json(error)
-    }
-})
 
-// GET ONE ITEM
-app.get('/api/trainers/:id', async (req, res, next) => {
-    const { id } = req.params;
-    try {
-        const {rows} = await pool.query('SELECT * FROM trainers WHERE trainer_id = $1', [id]);
-        res.status(200).json(rows)
-    } catch (error) {
-        console.log('Server error', error)
-        res.status(500).json(error)
-    }
-})
+app.use('/api/trainers', require('./routes/trainers'))
+app.use('/api/comments', require('./routes/comments'))
 
-app.post('/api/trainers/', async (req, res, next) => {
-    try {
-        const {picture, first_name, last_name, email, phone_number, bodybuilding, running, power_lifting, cycling, swimming} = req.body
-        // add data validation
-        const {rows} = await pool.query('INSERT INTO trainers(picture, first_name, last_name, email, phone_number, bodybuilding, running, power_lifting, cycling, swimming) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *', [picture, first_name, last_name, email, phone_number, bodybuilding, running, power_lifting, cycling, swimming])
-        res.status(201).json(rows)
-    } catch (error) {
-        console.log(error)
-        res.status(500).json(error)
-    }
-})
-
-app.delete('/api/trainers/:id', async (req, res, next) => {
-    try {
-        const {id} = req.params
-        const {rows} = await pool.query('DELETE from trainers WHERE trainer_id = $1 RETURNING *', [id])
-        res.status(200).json(rows)
-    } catch (error) {
-        console.log(error)
-        res.status(500).json(error)
-    }
-})
-
-app.patch('/api/trainers/:id', async (req, res, next) => {
-    console.log(req.body)
-    try {
-        const {first_name, last_name, email, phone_number, bodybuilding, running, power_lifting, cycling, swimming} = req.body
-        const {id} = req.params
-        // add data validation
-        const {rows} = await pool.query('UPDATE trainers SET first_name = $1, last_name = $2, email = $3, phone_number = $4, bodybuilding = $5, running = $6, power_lifting = $7, cycling = $8, swimming = $9 WHERE trainer_id = $10 RETURNING *', [first_name, last_name, email, phone_number, bodybuilding, running, power_lifting, cycling, swimming, id])
-        res.status(200).json(rows)
-    } catch (error) {
-        console.log(error)
-        res.status(500).json(error)
-    }
-})
-
-
-/**********************************************************/
-
-// GET all 
-app.get('/api/comments', async(req, res, next) => {
-    try {
-        let {rows} = await pool.query('SELECT * FROM comments')
-        res.status(200).json(rows)
-    } catch (error) {
-        console.log('Internal server error')
-        res.status(500).json(error)
-    }
-})
-
-// GET one based on user id 
-app.get('/api/comments/:id', async(req, res, next) => {
-    try {
-        const {id} = req.params
-        let {rows} = await pool.query('SELECT * FROM comments WHERE comment_id = $1', [id])
-        res.status(200).json(rows)
-    } catch (error) {
-        console.log('Internal server error')
-        res.status(500).json(error)
-    }
-})
-
-// POST one 
-app.post('/api/comments', async(req, res, next) => {
-    try {
-        const {comment_body, trainer_id} = req.body
-        // data validation
-        if (typeof comment_body !== 'string' || typeof trainer_id !== 'number') {
-            res.status(404).send('Bad request')
-        } else {
-            let {rows} = await pool.query('INSERT INTO comments(comment_body, trainer_id) VALUES ($1, $2) RETURNING *', [comment_body, trainer_id])
-            res.status(201).json(rows)
-        }
-    } catch (error) {
-        console.log('Internal Server Error')
-        res.status(500).json(error)
-    }
-})
-
-// UPDATE one
-app.patch('/api/comments/:id', async(req, res, next) => {
-    try {
-        const {id} = req.params
-        const {comment_body, trainer_id} = req.body
-        if (typeof comment_body !== 'string' || typeof trainer_id !== 'number') {
-            res.status(404).send('Bad request')
-        } else {
-            let {rows} = await pool.query('UPDATE comments SET comment_body = $1, trainer_id = $2 WHERE comment_id = $3 RETURNING *', [comment_body, trainer_id, id])
-            res.status(200).json(rows)
-        }
-    } catch (error) {
-        console.log('Internal Server Error')
-        res.status(500).json(error)
-    }
-})
-
-// DELETE one 
-app.delete('/api/comments/:id', async(req, res, next) => {
-    try {
-        const {id} = req.params
-        let {rows} = await pool.query('DELETE FROM comments WHERE comment_id = $1 RETURNING *', [id])
-        res.status(200).json(rows)
-    } catch (error) {
-        console.log('Internal Server Error')
-        res.status(500).json(error)
-    }
-})
-
-/**********************************************************/
 
 // handle unknown http reqs
 app.use( (req, res, next) => {

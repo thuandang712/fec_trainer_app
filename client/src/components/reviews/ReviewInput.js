@@ -25,14 +25,15 @@ class ReviewInput extends React.Component {
 
         return(
             <div>
+                <h2 className="reviewHeader">Leave a review!</h2>
                 <form onSubmit={handleSubmit}>
                     <input type="text"
-                    className="label"
+                    className="newReview"
                     placeholder="Add review here..."
                     value={reviewText}
                     onChange={handleChange}
                     />
-                    <input type="submit" className="btn"/>
+                    <input type="submit" className="ui primary button"/>
                 </form>
             </div>
         )
