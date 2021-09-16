@@ -3,6 +3,16 @@ const app = express();
 const PORT = process.env.PORT || 5500;
 const cors = require('cors')
 
+<<<<<<< HEAD
+const pool = new Pool({
+    user: 'root',
+    password: 'password',
+    host: 'localhost',
+    port: 5433,
+    database: 'fce'
+})
+=======
+>>>>>>> 4d33f25ff2374d78dfc90a62e2d9371ea67f2ff9
 
 app.use(express.json())
 app.use(cors())

@@ -18,4 +18,3 @@ const Reviews = ({reviews, deleteReview, editReview}) => {
 }
 
 export default Reviews
-
