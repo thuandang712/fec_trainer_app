@@ -31,7 +31,7 @@ const SingleTrainer = ({singleTrainer, clearSingleTrainer, reviews, addReview, d
                 <List.Item>
                     <List.Content className="singleTrainerItem">
                         <h2 className="checkOutHeader">Check out my reviews!</h2>
-                        <h2>   <i class="angle double down icon"></i>   <i class="angle double down icon"></i>   <i class="angle double down icon"></i>   </h2>
+                        <h2>   <i className="angle double down icon"></i>   <i className="angle double down icon"></i>   <i className="angle double down icon"></i>   </h2>
                     </List.Content>
                 </List.Item>
             </List>
