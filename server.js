@@ -5,10 +5,10 @@ const cors = require('cors')
 const { Pool } = require('pg');
 
 const pool = new Pool({
-    user: 'thuandang',
-    // password: 'password',
+    user: 'root',
+    password: 'password',
     host: 'localhost',
-    // port: 5434,
+    port: 5433,
     database: 'fce'
 })
 
