@@ -1,11 +1,24 @@
-const { Pool } = require('pg');
+const { Pool } = require('pg')
 
-const pool = new Pool({
-    user: 'thuandang',
-    // password: 'password',
+let pool 
+
+if (!process.env.NODE_ENV) {
+  pool = new Pool({
+    user: 'ncolby', 
+    database: 'fce', 
     host: 'localhost',
-    // port: 5434,
-    database: 'fce'
-})
+    password: 'password',
+    port: 5434
+  })
+} else {
+  pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    host: 'trainers-r-us-api.herokuapp.com',
+    ssl: {
+      rejectUnauthorized: false
+    }
+  })
+}
+
 
 module.exports = pool
